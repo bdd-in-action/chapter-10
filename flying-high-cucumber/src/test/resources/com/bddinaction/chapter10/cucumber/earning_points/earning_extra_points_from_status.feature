@@ -15,4 +15,3 @@ Feature: Earning extra points from Frequent Flyer status
 
 
 
-

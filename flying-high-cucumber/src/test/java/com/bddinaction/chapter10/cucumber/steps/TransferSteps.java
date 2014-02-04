@@ -1,6 +1,7 @@
 package com.bddinaction.chapter10.cucumber.steps;
 
-import com.bddinaction.chapter10.cucumber.model.Account;
+import com.bddinaction.chapter10.model.Account;
+import com.bddinaction.chapter10.cucumber.steps.persona.FrequentFlyerPersona;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -8,24 +9,26 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-/**
- * A description goes here.
- * User: john
- * Date: 1/08/13
- * Time: 2:05 PM
- */
+import static org.fest.assertions.Assertions.assertThat;
+
 public class TransferSteps {
 
     public enum Status {Standard, Gold, Silver, Bronze};
 
-    @Given("I am a (.*) Frequent Flyer member")
-    public void useAMemberWithAGivenStatus(Status status) {
-       // member = members.getMember().withStatus(status);
+    private final FrequentFlyerHelper frequentFlyerHelper;
+
+    public TransferSteps(FrequentFlyerHelper frequentFlyerHelper) {
+        this.frequentFlyerHelper = frequentFlyerHelper;
     }
 
     @Given("^(.*) is a Frequent Flyer member$")
-    public void Joe_is_a_Frequent_Flyer_member(String member) throws Throwable {
-        System.out.println("Frequent flyer: " + member);
+    public void Joe_is_a_Frequent_Flyer_member(FrequentFlyerPersona frequentFlyerPersona) throws Throwable {
+        frequentFlyerHelper.setFrequentFlyer(frequentFlyerPersona.getFrequentFlyer());
+    }
+
+    @Given("I am a (.*) Frequent Flyer member")
+    public void useAMemberWithAGivenStatus(Status status) {
+
     }
 
     @Given("^the following accounts:$")
