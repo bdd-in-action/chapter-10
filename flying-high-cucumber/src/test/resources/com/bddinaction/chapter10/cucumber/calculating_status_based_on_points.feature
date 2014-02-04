@@ -24,3 +24,4 @@ Scenario Outline:
     | Silver        | 600                 | 100         | Gold        |
     | Gold          | 1400                | 99          | Gold        |
     | Gold          | 1400                | 100         | Platinum    |
+    | Platinum      | 2000                | 100         | Platinum    |
