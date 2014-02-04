@@ -1,3 +1,4 @@
+@earning-points
 Feature: Earning Frequent Flyer points from special offers
 In order to encourage travellers to book with Flying High Airlines more frequently
 As the Flying High sales manager

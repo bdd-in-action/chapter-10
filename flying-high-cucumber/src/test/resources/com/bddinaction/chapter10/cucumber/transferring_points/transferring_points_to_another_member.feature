@@ -1,3 +1,4 @@
+@transferring-points
 Feature: Transfer points to other members
 
   Background:

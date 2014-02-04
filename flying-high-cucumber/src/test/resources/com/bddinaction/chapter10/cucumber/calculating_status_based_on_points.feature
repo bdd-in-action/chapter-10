@@ -1,3 +1,4 @@
+@status-points
 Feature: Frequent Flyer status is calculated based on points
   As a Frequent Flyer member
   I want my status to be upgraded as soon as I earn enough points

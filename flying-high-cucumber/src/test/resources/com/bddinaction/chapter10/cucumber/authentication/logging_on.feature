@@ -1,4 +1,5 @@
 @iteration-1
+@authentication
 Feature: Logging on to the 'My Flying High' web site
   Frequent Flyer members can register on the 'My Flying High' website
   using their Frequent Flyer number and a password that they provide
