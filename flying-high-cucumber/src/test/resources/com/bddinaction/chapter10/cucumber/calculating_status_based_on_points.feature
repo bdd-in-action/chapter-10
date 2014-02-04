@@ -14,7 +14,7 @@ Scenario Outline:
     | initialStatus | initialStatusPoints | extraPoints | finalStatus |
     | Bronze        | 0                   | 300         | Silver      |
     | Silver        | 0                   | 700         | Gold        |
-    | Gold          | 0                   | 1500        | Silver    |
+    | Gold          | 0                   | 1500        | Platinum    |
 
   Examples: Earning status in small chunks
     | initialStatus | initialStatusPoints | extraPoints | finalStatus |
