@@ -55,7 +55,7 @@ public class EarningPointsSteps {
 
     @Then("I should earn $points points")
     public void thenIShouldEarn(int points) {
-        int earnedPoints = member.getPointsFor(trip);
+//        int earnedPoints = member.getPointsFor(trip);
 //        assertThat(points).isEqualTo(earnedPoints);
     }
 
