@@ -2,6 +2,7 @@ package com.bddinaction.chapter10.cucumber.steps;
 
 import com.bddinaction.chapter10.model.Account;
 import com.bddinaction.chapter10.cucumber.steps.persona.FrequentFlyerPersona;
+import com.bddinaction.chapter10.model.Status;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,11 +10,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-import static org.fest.assertions.Assertions.assertThat;
-
 public class TransferSteps {
-
-    public enum Status {Standard, Gold, Silver, Bronze};
 
     private final FrequentFlyerHelper frequentFlyerHelper;
 

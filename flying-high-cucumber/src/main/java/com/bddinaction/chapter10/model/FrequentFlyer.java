@@ -1,6 +1,8 @@
 package com.bddinaction.chapter10.model;
 
 
+import com.bddinaction.chapter10.services.InMemoryStatusService;
+import com.bddinaction.chapter10.services.StatusService;
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;
@@ -10,23 +12,25 @@ public class FrequentFlyer {
     private final String frequentFlyerNumber;
     private final String firstName;
     private final String lastName;
-    private FrequentFlyerStatus status;
+    private Status status = Status.Bronze;
     private int statusPoints;
+    private StatusService statusService;
 
-    private FrequentFlyer(String frequentFlyerNumber, String firstName, String lastName,
-                          FrequentFlyerStatus status, int statusPoints) {
+    protected FrequentFlyer(String frequentFlyerNumber, String firstName, String lastName,
+                          Status status, int statusPoints, StatusService statusService) {
         this.frequentFlyerNumber = frequentFlyerNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.status = status;
         this.statusPoints = statusPoints;
+        this.statusService = statusService;
     }
 
-    private FrequentFlyer(String frequentFlyerNumber, String firstName, String lastName) {
-        this(frequentFlyerNumber, firstName, lastName, FrequentFlyerStatus.BRONZE, 0);
+    protected FrequentFlyer(String frequentFlyerNumber, String firstName, String lastName, StatusService statusService) {
+        this(frequentFlyerNumber, firstName, lastName, Status.Bronze, 0, statusService);
     }
 
-    public FrequentFlyer withStatus(FrequentFlyerStatus newStatus) {
+    public FrequentFlyer withStatus(Status newStatus) {
         this.setStatus(newStatus);
         return this;
     }
@@ -47,7 +51,7 @@ public class FrequentFlyer {
         return new FrequentFlyerBuilder(frequentFlyerNumber);
     }
 
-    public FrequentFlyerStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -56,7 +60,7 @@ public class FrequentFlyer {
         return this;
     }
 
-    public void setStatus(FrequentFlyerStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -66,13 +70,13 @@ public class FrequentFlyer {
     }
 
     private void updateStatusLevel() {
-        setStatus(FrequentFlyerStatus.statusLevelFor(statusPoints));
+        setStatus(statusService.statusLevelFor(statusPoints));
     }
 
     public int getStatusPoints() { return statusPoints; }
 
-    public List<FrequentFlyerStatus> getUnachievedStatuses() {
-        return ImmutableList.of(FrequentFlyerStatus.GOLD, FrequentFlyerStatus.PLATINUM);
+    public List<Status> getUnachievedStatuses() {
+        return ImmutableList.of(Status.Gold, Status.Platinum);
     }
 
     public static class FrequentFlyerBuilder {
@@ -84,7 +88,7 @@ public class FrequentFlyer {
         }
 
         public FrequentFlyer named(String firstName, String lastName) {
-            return new FrequentFlyer(frequentFlyerNumber, firstName, lastName);
+            return new FrequentFlyer(frequentFlyerNumber, firstName, lastName, new InMemoryStatusService());
         }
     }
 

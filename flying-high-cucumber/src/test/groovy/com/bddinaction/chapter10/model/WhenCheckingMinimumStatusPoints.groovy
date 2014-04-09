@@ -2,22 +2,22 @@ package com.bddinaction.chapter10.model
 
 import spock.lang.Specification
 
-import static com.bddinaction.chapter10.model.FrequentFlyerStatus.*
+import static Status.*
 
 class WhenCheckingMinimumStatusPoints extends Specification {
 
     def "should know what the minimum points are for a given status level"() {
         expect:
-             FrequentFlyerStatus.statusLevelFor(points) == expectedStatus
+             Status.statusLevelFor(points) == expectedStatus
         where:
             points  | expectedStatus
-            0       | BRONZE
-            299     | BRONZE
-            300     | SILVER
-            699     | SILVER
-            700     | GOLD
-            1499    | GOLD
-            1500    | PLATINUM
+            0       | Bronze
+            299     | Bronze
+            300     | Silver
+            699     | Silver
+            700     | Gold
+            1499    | Gold
+            1500    | Platinum
     }
 }
 

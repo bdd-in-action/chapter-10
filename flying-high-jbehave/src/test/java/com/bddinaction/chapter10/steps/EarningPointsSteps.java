@@ -20,7 +20,7 @@ public class EarningPointsSteps {
     public void defineTheFlyingDistanceForATrip(String departure,
                                                 String destination,
                                                 int distance) {
-//        inTheTestDatabase.theDistanceBetween(departure).and(destination).is(distance);
+        inTheTestDatabase.theDistanceBetween(departure).and(destination).is(distance);
     }
 
 
@@ -40,23 +40,23 @@ public class EarningPointsSteps {
 
     @When("I fly from $departure to $destination")
     public void whenIFlyFrom(String departure, String destination) {
-//        trip = trips.lookupTrip(departure, destination, time, date);
+        trip = trips.lookupTrip(departure, destination, time, date);
     }
 
     @When("I fly from $departure to $destination in $status class")
     public void whenIFlyFrom(String departure, String destination, String status) {
-//        trip = trips.lookupTrip(departure, destination, time, date);
+        trip = trips.lookupTrip(departure, destination, time, date);
     }
     @When("I fly from $departure to $destination on $date at $time")
     public void whenIFlyFrom(String departure, String destination,
                              DateTime date, LocalTime time) {
-//        trip = trips.lookupTrip(departure, destination, time, date);
+        trip = trips.lookupTrip(departure, destination, time, date);
     }
 
     @Then("I should earn $points points")
     public void thenIShouldEarn(int points) {
-//        int earnedPoints = member.getPointsFor(trip);
-//        assertThat(points).isEqualTo(earnedPoints);
+        int earnedPoints = member.getPointsFor(trip);
+        assertThat(points).isEqualTo(earnedPoints);
     }
 
     @Given("that I want to become a Frequent Flyer")

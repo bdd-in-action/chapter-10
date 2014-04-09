@@ -4,8 +4,13 @@ Feature: Frequent Flyer status is calculated based on points
   I want my status to be upgraded as soon as I earn enough points
   So that I can benefit from my higher status sooner
 
+Scenario: New members should start out as BRONZE members
+  Given Jill Smith is not a Frequent Flyer member
+  When she registers on the Frequent Flyer program
+  Then she should have a status of BRONZE
+
 Scenario Outline:
-  Given Joe is a <initialStatus> Frequent Flyer member
+  Given Joe Jones is a <initialStatus> Frequent Flyer member
   And he has <initialStatusPoints> status points
   When he earns <extraPoints> extra status points
   Then he should have a status of <finalStatus>

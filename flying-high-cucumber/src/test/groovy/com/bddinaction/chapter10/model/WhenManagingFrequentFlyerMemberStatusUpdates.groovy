@@ -2,7 +2,7 @@ package com.bddinaction.chapter10.model
 
 import spock.lang.Specification
 
-import static com.bddinaction.chapter10.model.FrequentFlyerStatus.*
+import static Status.*
 
 class WhenManagingFrequentFlyerMemberStatusUpdates extends Specification {
 
@@ -23,7 +23,7 @@ class WhenManagingFrequentFlyerMemberStatusUpdates extends Specification {
         when:
             def status = member.status
         then:
-            status == FrequentFlyerStatus.BRONZE
+            status == Status.Bronze
     }
 
 
@@ -31,9 +31,9 @@ class WhenManagingFrequentFlyerMemberStatusUpdates extends Specification {
         given:
             def member = FrequentFlyer.withFrequentFlyerNumber("12345678").named("Joe","Bloggs")
         when:
-            def updatedMember = member.withStatus(FrequentFlyerStatus.SILVER)
+            def updatedMember = member.withStatus(Status.Silver)
         then:
-            updatedMember.status == FrequentFlyerStatus.SILVER
+            updatedMember.status == Status.Silver
     }
 
     def "a member should be able to earn extra status points"() {
@@ -63,12 +63,12 @@ class WhenManagingFrequentFlyerMemberStatusUpdates extends Specification {
             member.getStatus() == expectedStatus
         where:
             initialStatus | initialPoints | extraPoints | expectedStatus
-            BRONZE        | 0             | 299         | BRONZE
-            BRONZE        | 0             | 300         | SILVER
-            SILVER        | 0             | 699         | SILVER
-            SILVER        | 0             | 700         | GOLD
-            GOLD          | 0             | 1499        | GOLD
-            GOLD          | 0             | 1500        | PLATINUM
+            Bronze        | 0             | 299         | Bronze
+            Bronze        | 0             | 300         | Silver
+            Silver        | 0             | 699         | Silver
+            Silver        | 0             | 700         | Gold
+            Gold          | 0             | 1499        | Gold
+            Gold          | 0             | 1500        | Platinum
     }
 
 }
