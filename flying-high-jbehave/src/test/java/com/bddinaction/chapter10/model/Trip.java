@@ -8,8 +8,25 @@ package com.bddinaction.chapter10.model;
  */
 public class Trip {
     private int points = 439;
+    String departure;
+    String destination;
+
+
+    public Trip(String departure, String destination, int points) {
+        this.points = points;
+        this.departure = departure;
+        this.destination = destination;
+    }
 
     public int getPoints() {
         return points;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public String getDestination() {
+        return destination;
     }
 }

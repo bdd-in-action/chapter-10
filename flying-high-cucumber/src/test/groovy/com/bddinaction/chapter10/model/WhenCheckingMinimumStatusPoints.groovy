@@ -1,11 +1,13 @@
 package com.bddinaction.chapter10.model
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import static Status.*
 
 class WhenCheckingMinimumStatusPoints extends Specification {
 
+    @Unroll
     def "should know what the minimum points are for a given status level"() {
         expect:
              Status.statusLevelFor(points) == expectedStatus

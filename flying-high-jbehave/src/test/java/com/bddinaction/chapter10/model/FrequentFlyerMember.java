@@ -11,6 +11,7 @@ public enum FrequentFlyerMember {
     public final long membershipNumber;
 
     public int getPointsFor(Trip trip) {
-        return 439;
+        return trip.getPoints();
     }
+
 }

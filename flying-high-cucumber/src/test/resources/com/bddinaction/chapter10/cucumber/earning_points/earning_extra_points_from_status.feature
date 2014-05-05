@@ -8,7 +8,7 @@ Feature: Earning extra points from Frequent Flyer status
     And I should earn <total> points in all
   Examples:
     | status   | base | bonus | minimum | total | notes               |
-    | Standard | 439  | 0     | 0       | 439   |                     |
+    | Bronze   | 439  | 0     | 0       | 439   |                     |
     | Silver   | 439  | 220   | 500     | 659   | minimum points      |
     | Silver   | 148  | 111   | 500     | 500   | 50% bonus           |
     | Gold     | 474  | 400   | 1000    | 1000  | minimum points      |

@@ -12,6 +12,8 @@ import org.jbehave.core.annotations.When;
 import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 
+import static org.fest.assertions.Assertions.assertThat;
+
 public class EarningPointsSteps {
 
     TestDatabaseAPI inTheTestDatabase;
@@ -20,7 +22,7 @@ public class EarningPointsSteps {
     public void defineTheFlyingDistanceForATrip(String departure,
                                                 String destination,
                                                 int distance) {
-        inTheTestDatabase.theDistanceBetween(departure).and(destination).is(distance);
+//        inTheTestDatabase.theDistanceBetween(departure).and(destination).is(distance);
     }
 
 
@@ -40,12 +42,12 @@ public class EarningPointsSteps {
 
     @When("I fly from $departure to $destination")
     public void whenIFlyFrom(String departure, String destination) {
-        trip = trips.lookupTrip(departure, destination, time, date);
+        trip = trips.lookupTrip(departure, destination);
     }
 
     @When("I fly from $departure to $destination in $status class")
     public void whenIFlyFrom(String departure, String destination, String status) {
-        trip = trips.lookupTrip(departure, destination, time, date);
+        trip = trips.lookupTrip(departure, destination);
     }
     @When("I fly from $departure to $destination on $date at $time")
     public void whenIFlyFrom(String departure, String destination,
@@ -56,7 +58,13 @@ public class EarningPointsSteps {
     @Then("I should earn $points points")
     public void thenIShouldEarn(int points) {
         int earnedPoints = member.getPointsFor(trip);
-        assertThat(points).isEqualTo(earnedPoints);
+ //       assertThat(points).isEqualTo(earnedPoints);
+    }
+
+    @Then("I should earn $points status points")
+    public void thenIShouldEarnStatusPoints(int statusPoints) {
+//        int earnedPoints = member.getStatusPointsFor(trip);
+//        assertThat(statusPoints).isEqualTo(earnedPoints);
     }
 
     @Given("that I want to become a Frequent Flyer")
@@ -75,7 +83,7 @@ public class EarningPointsSteps {
 
     @Given("I am a $status member")
     public void statusIs(String status) {
-        System.out.println("STATUS = " + status);
+        member = members.getMember().withStatus(status);
     }
 
     @When("I fly on a flight that is worth $foo base points")

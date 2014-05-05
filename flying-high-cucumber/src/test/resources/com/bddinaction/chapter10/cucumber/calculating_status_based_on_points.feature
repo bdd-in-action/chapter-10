@@ -7,7 +7,7 @@ Feature: Frequent Flyer status is calculated based on points
 Scenario: New members should start out as BRONZE members
   Given Jill Smith is not a Frequent Flyer member
   When she registers on the Frequent Flyer program
-  Then she should have a status of BRONZE
+  Then she should have a status of Bronze
 
 Scenario Outline:
   Given Joe Jones is a <initialStatus> Frequent Flyer member
