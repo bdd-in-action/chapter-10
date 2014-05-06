@@ -44,7 +44,7 @@ public class EarningStatus {
 
     @Given("^(?:s?)he has (.*) status points$")
     public void earned_status_points(int statusPoints) {
-        //FrequentFlyer member = frequentFlyerHelper.getFrequentFlyer();
+//        FrequentFlyer member = frequentFlyerHelper.getFrequentFlyer();
         member.setStatusPoints(statusPoints);
     }
 

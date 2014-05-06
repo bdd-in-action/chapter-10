@@ -1,4 +1,4 @@
 /**
  * This package contains the application code.
  */
-package com.bddinaction.chapter2;
+package com.bddinaction.chapter10;
